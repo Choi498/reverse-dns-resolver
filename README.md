@@ -39,3 +39,10 @@ The trade-off: resolution goes through the operating system resolver (`socket.ge
 - `ReverseDnsResolver` — class; constructor accepts optional `resolve_ptr` and `resolve_forward` callables for testing.
 - `ResolutionResult` — dataclass with `address`, `ptr_names`, `confirmed_names`, `error`, and a `confirmed` property.
 - `resolve_reverse_dns(address)` — convenience function delegating to `ReverseDnsResolver().resolve(address)`.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
