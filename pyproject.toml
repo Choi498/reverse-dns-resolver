@@ -1,6 +1,6 @@
 [project]
 name = "reverse-dns-resolver"
-version = "0.1.4"
+version = "0.1.5"
 description = "Perform reverse DNS lookups with PTR record resolution and forward-confirmation to detect spoofed PTR entries."
 requires-python = ">=3.10"
 dependencies = []
